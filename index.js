@@ -39,9 +39,11 @@ Your function should return a boolean TRUE if the length of the array is 31 and 
 To save you from having to count the items above, you can assume that length of originalFlavors is 31. You may also want to test your function by creating and passing an array of a different length, to make sure it returns FALSE if length is not 31. 
 
 i.e. is31Flavors(originalFlavors) will return TRUE.*/
+let numbers = [1,2,3,4,5,6,7,8,9,0];
 
-function is31Flavors(originalFlavors){
-    if (originalFlavors.length === 31) {
+
+function is31Flavors(diffArray1){
+    if (diffArray1.length === 31) {
         return true;
     }else {
         return false;
@@ -61,11 +63,11 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(a){
-    let addFlavor=originalFlavors.unshift("Rainbow Sherbert");
-    console.log("The answer to task 2 is " , originalFlavors);
+function addFlavor(diffArray2, flavor){
+    diffArray2.unshift(flavor);
+    console.log("The answer to task 2 is " , diffArray2)
 }
-addFlavor();
+addFlavor(originalFlavors, "Rainbow Sherbert");
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
 
@@ -77,11 +79,11 @@ Your function should remove a flavor from the end of the array and console.log t
 
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/ 
 
-function removeLastFlavor(a){
-    let removeLastFlavor=originalFlavors.pop();
-    console.log("The answer to task 3 is " , originalFlavors);
+function removeLastFlavor(diffArray3){
+    diffArray3.pop();
+    console.log("The answer to task 3 is " , diffArray3);
 }
-removeLastFlavor();
+removeLastFlavor(originalFlavors);
 
 /* Task 4: Write a function that returns a flavor at a given index in the array.
 
@@ -92,9 +94,8 @@ Your function should accept:
 
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
-function getFlavorByIndex(a, b){
-    let getFlavorByIndex=originalFlavors;
-    console.log("The answer to task 4 is " , originalFlavors[b]);
+function getFlavorByIndex(diffArray4, index){
+    console.log("The answer to task 4 is " , diffArray4[index]);
 }
 getFlavorByIndex(originalFlavors, 2);
 /* Task 5: As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that flavor from the array. 
@@ -108,14 +109,11 @@ For example, removeFlavorByName(originalFlavors, "Vanilla") would return an arra
 
 Hint: You can use .splice() for this*/
 
-// let removeFlavorByName = originalFlavors.splice(30,1)
-// console.log(originalFlavors);
-
-// function removeFlavorByName(a, b){
-//     let removeFlavorByName=originalFlavors.splice();
-//     console.log("The answer to task 5 is " + originalFlavors.splice());
-// }
-// removeFlavorByName(originalFlavors, "Vanilla");
+function removeFlavorByName(diffArray, flavor){
+    let index = diffArray.indexOf(flavor);
+    console.log("The answer to task 6 is " , diffArray.splice(index, 1));
+}
+removeFlavorByName(originalFlavors, "Vanilla");
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
