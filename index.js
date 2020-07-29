@@ -113,7 +113,7 @@ function removeFlavorByName(diffArray, flavor){
     let index = diffArray.indexOf(flavor);
     console.log("The answer to task 6 is " , diffArray.splice(index, 1));
 }
-removeFlavorByName(originalFlavors, "Vanilla");
+// removeFlavorByName(originalFlavors, "Vanilla");
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
@@ -125,10 +125,10 @@ and should return a new array that is identical to the old array. You can name t
 
 function copy(newArr, origArr){
     newArr = [...origArr];
-    return newArr;
-
+    console.log("The answer to task 6 is " , newArr);
 }
-console.log("The answer to task 6 is " , copy('backUp', originalFlavors));
+copy('backUp', originalFlavors);
+
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
 
@@ -153,11 +153,10 @@ function filterByWord(array, flavor){
             filteredArr.push(array[i]);
         }
     }
-        return filteredArr;
-
+    console.log("The answer to task 7 is " ,filteredArr);
 }
 
-console.log("The answer to task 7 is " , filterByWord(originalFlavors, 'Chocolate'));
+filterByWord(originalFlavors, 'Chocolate');
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
 
