@@ -39,17 +39,15 @@ Your function should return a boolean TRUE if the length of the array is 31 and 
 To save you from having to count the items above, you can assume that length of originalFlavors is 31. You may also want to test your function by creating and passing an array of a different length, to make sure it returns FALSE if length is not 31. 
 
 i.e. is31Flavors(originalFlavors) will return TRUE.*/
-let numbers = [1,2,3,4,5,6,7,8,9,0];
-
 
 function is31Flavors(diffArray1){
     if (diffArray1.length === 31) {
-        return true;
+        console.log("The answer to task 1 is " + true);
     }else {
-        return false;
+        console.log("The answer to task 1 is " + false);
     }
 }
-console.log("The answer to task 1 is " + is31Flavors(originalFlavors));
+is31Flavors(originalFlavors);
 
 
 /* Task 2: Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -111,7 +109,7 @@ Hint: You can use .splice() for this*/
 
 function removeFlavorByName(diffArray, flavor){
     let index = diffArray.indexOf(flavor);
-    console.log("The answer to task 6 is " , diffArray.splice(index, 1));
+    console.log("The answer to task 5 is " , diffArray.splice(index, 1));
 }
 // removeFlavorByName(originalFlavors, "Vanilla");
 
@@ -153,7 +151,7 @@ function filterByWord(array, flavor){
             filteredArr.push(array[i]);
         }
     }
-    console.log("The answer to task 7 is " ,filteredArr);
+    console.log("The answer to task 7 is " , filteredArr);
 }
 
 filterByWord(originalFlavors, 'Chocolate');
@@ -169,13 +167,42 @@ Your function should accept:
 and should return the average number of words per item in the array. 
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
-
-function getAverageWordLength(/*code here*/){
-
-    /*code here*/
-
+let newFlavors1=["Date night",
+"U.S.S Butterscotch (Stranger Things special)",
+"Honey Almond",
+"Mint Chocolate Chip",
+"Chocolate",
+"Oreo® Cookies'n Cream",
+"Chocolate Chip",
+"Pralines 'n Cream",
+"Very Berry Strawberry",
+"Chocolate Chip Cookie Dough",
+"Old Fashioned Butter Pecan",
+"Jamoca®",
+"Jamoca® Almond Fudge",
+"Reese's® Peanut Butter Cup",
+"Rocky Road",
+"Peanut Butter ’n Chocolate",
+"Gold Medal Ribbon®",
+"World Class® Chocolate",
+"Cherries Jubilee",
+"Chocolate Fudge",
+"Daiquiri Ice",
+"Rainbow Sherbet",
+"Rainbow Swirl"]
+function getAverageWordLength(diffArray){
+    let numWordArr = [];
+    for (i=0; i< diffArray.length; i++){
+        let x = diffArray[i].split(" ").length;
+        numWordArr.push(x);
+    }
+    let totLetters = numWordArr.reduce(function(a,b){
+        return a + b;
+    }, 0)
+    console.log("the answer to Stretch 1 is " + totLetters / diffArray.length);
 }
 
+getAverageWordLength(newFlavors1);
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
@@ -258,8 +285,14 @@ const regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
-
-    /*code here*/
-
+function getRandomFlavors(array){
+    let x = array.length, tempValue, randIndex;
+    while (0 !== x){
+        randIndex = Math.floor(Math.random() * x);
+        x -= 1;
+        tempValue = array[x];
+        array[randIndex] = tempValue;
+    }
+    console.log("The answer to Stretch goal 2 is " , array);
 }
+getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors);
